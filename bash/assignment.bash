@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
-while [1==1]{
+while true; do
     read input
     if [ $input == 'Apache2' ]
     then 
@@ -15,6 +15,6 @@ while [1==1]{
     if [ $input == 'Exit' ]
     then 
       echo "Goodbye"
-      exit
+      break
     fi
-}
+done
