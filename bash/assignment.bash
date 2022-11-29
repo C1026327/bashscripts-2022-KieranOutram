@@ -10,8 +10,8 @@ while [1==1]{
     read input
     if [input == "Apache2"]
         then installApache2()
-    fi
+        fi
     if [input == "Exit"]
      then exit
-    fi
+     fi
 }
