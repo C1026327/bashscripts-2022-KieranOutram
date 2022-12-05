@@ -7,7 +7,7 @@ function newEmail(){
   read EMAIL
   echo $EMAIL > Stored_Email.txt
 }
-function Details(){
+function newDetails(){
   echo "Your Information:" > User_Details.txt
   echo "Please enter your Name."
   read NAME
@@ -63,6 +63,18 @@ do
       ;;
     SetEmail | "Set email" | Email)
       newEmail
+      ;;
+    SendEmail | "Send Email" )
+      sendEmail
+      ;;
+    NewDetails | "New Details" )
+      newDetails
+      ;;
+    ReadDetails | "Read Details" )
+      readDetails
+      ;;
+    substringtest | "Substring Test" )
+      SubStringTest
       ;;
     exit)
       break
