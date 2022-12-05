@@ -49,6 +49,10 @@ echo "Welcome, Root-User, please type the following commands:"
 echo "\n Apache 2"
 echo " View Directory"
 echo " Set Email"
+echo " Send Email"
+echo " New Details"
+echo " Read Details"
+echo " Substring Test"
 echo " Exit"
 while true;
 do
