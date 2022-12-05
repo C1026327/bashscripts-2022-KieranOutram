@@ -65,7 +65,7 @@ do
       installApache2
       ;;
     ViewDirectory | "View Directory")
-      dir
+      dir ~/
       ;;
     SetEmail | "Set email" | Email)
       newEmail
