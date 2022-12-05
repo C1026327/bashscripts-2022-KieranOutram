@@ -22,8 +22,7 @@ do
             ;;
         sendemail|"send email")
             storedemail= cat Stored_Email.txt
-            mail -s 'AssignmentEmail.bash' $storedemail <<< "You have sent an email from Bash."
-            
+            mail -s 'AssignmentEmail.bash' "$storedemail" <<< "You have sent an email from Bash."
             ;;
         exit)
             break
