@@ -6,7 +6,6 @@ fi
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install mailutils -y
-sudo dpkg-reconfigure postfix
 echo "Welcome to the mailing service."
 echo "To Begin, submit your email by typing 'NewEmail'"
 while true;
