@@ -44,9 +44,11 @@ if [ "$EUID" -ne 0 ]
 fi
 sudo apt update -y
 sudo apt upgrade -y
+debconf-set-selections <<< "postfix postfix/mailname root@gmail.com"
+debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
 sudo apt-get install mailutils -y
 echo "Welcome, Root-User, please type the following commands:"
-echo "\n Apache 2"
+echo " Apache 2"
 echo " View Directory"
 echo " Set Email"
 echo " Send Email"
