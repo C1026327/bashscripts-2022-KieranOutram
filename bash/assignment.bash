@@ -2,11 +2,6 @@
 function installApache2(){
     apt install apache2   
 }
-function newEmail(){
-  echo "Please enter your Email."
-  read EMAIL
-  echo $EMAIL > Stored_Email.txt
-}
 function newDetails(){
   echo "Your Information:" > User_Details.txt
   echo "Please enter your Name."
@@ -20,23 +15,19 @@ function newDetails(){
   echo "\n $FAVRWORD" >> User_Details.txt
 }
 function readDetails(){
-  file = "User_Details.txt"
+  file="User_Details.txt"
   while read -r line; do
     echo -e "$line\n"
   done <$file
 }
 function SubStringTest(){
-  variable1 = "I'm just a single variable"
-  variable2 = "substring"
-  substring = cut -c  1-11 $variable1
-  concatenatedString = "$substring""$variable2"
-}
-function sendEmail(){
-  echo "You are going to send an email."
-  echo "What message will you send today?"
-  read contents
-  $value = cat Stored_Email.txt
-  echo "$contents" | email -s 'message subject' $value 
+  variable1="This is a Variable"
+  variable2="concatenated string"
+  substring=${variable1:T:-8}
+  concatenatedString="$substring""$variable2"
+  echo $variable1
+  echo $substring"substring"
+  echo $concatenatedString
 }
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -44,14 +35,10 @@ if [ "$EUID" -ne 0 ]
 fi
 sudo apt update -y
 sudo apt upgrade -y
-debconf-set-selections <<< "postfix postfix/mailname root@gmail.com"
-debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
-sudo apt-get install mailutils -y
+sudo apt install tree -y
 echo "Welcome, Root-User, please type the following commands:"
 echo " Apache 2"
 echo " View Directory"
-echo " Set Email"
-echo " Send Email"
 echo " New Details"
 echo " Read Details"
 echo " Substring Test"
@@ -60,26 +47,21 @@ while true;
 do
   read COMMAND
   echo -n "You have selected: $COMMAND."
-  case $COMMAND in
-    Apache2 | "Apache 2")
+  echo ""
+  case ${COMMAND,,} in
+    apache2 | "apache 2")
       installApache2
       ;;
-    ViewDirectory | "View Directory")
-      dir ~/
+    viewdirectory | "view directory")
+      tree
       ;;
-    SetEmail | "Set email" | Email)
-      newEmail
-      ;;
-    SendEmail | "Send Email" )
-      sendEmail
-      ;;
-    NewDetails | "New Details" )
+    newdetails | "new details")
       newDetails
       ;;
-    ReadDetails | "Read Details" )
+    readdetails | "read details")
       readDetails
       ;;
-    substringtest | "Substring Test" )
+    substringtest | "substring test")
       SubStringTest
       ;;
     exit)
