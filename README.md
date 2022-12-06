@@ -1,2 +1,2 @@
-# sysArchs1
-This Repository is for learning git and github.
+# bash scripts-2022-KieranOutram
+This Repository holds bash scripts for Task 2 on the System Architectures Assessment.
