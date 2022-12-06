@@ -12,5 +12,5 @@ sudo apt-get install ca-certificates -y
 sudo apt-get install libsas2-modules -y
 echo "Please enter your Email."
 read EMAIL
-mail -s 'AssignmentEmail.bash' "$EMAIL"
+mail -s 'AssignmentEmail.bash' `$EMAIL`
 cat /var/mail/root
