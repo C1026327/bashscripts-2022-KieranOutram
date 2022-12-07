@@ -13,7 +13,7 @@ server="smtp.mail.yahoo.com"
 ## This is the SMTP server for Yahoo mail.
 from="kiekie420360@yahoo.com"
 ## My personal email on Yahoo.
-to="c1026327@hallam.shu.ac.uk"
+to="kiekie420360@yahoo.com"
 ## My Student Email
 subj="Test"
 message="Testing"

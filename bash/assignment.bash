@@ -1,6 +1,15 @@
 #!/bin/sh
 function installApache2(){
-    apt install apache2   ## This command will confirm apache2 is installed.
+    apt install apache2 -y   ## This command will confirm apache2 is installed.
+}
+function installMariaDB(){
+  apt install mariadb-server -y
+  echo "To setup Mariadb, please consider using the 'mysql_secure_installation'."
+}
+function installPHP(){
+  apt install php-cli -y
+  echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+  systemctl restart apache2
 }
 ## This function saves and overwrites the details of User_Details.txt
 ## If there is not a User_Details.txt it will make a new one.
@@ -57,6 +66,8 @@ sudo apt install tree -y
 ## This line will list every command to the user.
 echo "Welcome, Root-User, please type the following commands:"
 echo " Apache 2"
+echo " Maria DB"
+echo " PHP"
 echo " View Directory"
 echo " New Details"
 echo " Read Details"
@@ -69,9 +80,15 @@ do ## until it is broken.
   echo "" # as well as present it back.
   case ${COMMAND,,} in ##The Case allows the user to input one of the below statements,
 ## ${COMMAND,,} makes the user's wording lowercase, so no matter the capitalisation it will always submit.
-    apache2 | "apache 2") ##it runs almost like an "if" statement.
+    apache2 | "apache 2" | "install apache 2" | "install apache2") ##it runs almost like an "if" statement.
       installApache2 ##This calls for the install apache function.
       ;; ## The expected result should be that Apache2 is installed.
+    mariadb | "maria db" | "install mariadb" | "install maria db")
+      installMariaDB
+      ;;
+    php | "install php")
+      installPHP
+      ;;
     viewdirectory | "view directory")
       tree ## This runs the "tree" program, which presents all directories in 
       ;;
