@@ -8,7 +8,7 @@ function installMariaDB(){
 }
 function installPHP(){
   apt install php-cli -y
-  echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+  echo "<?php phpinfo(); ?>" >> /var/www/html/phpinfo.php
   systemctl restart apache2
 }
 ## This function saves and overwrites the details of User_Details.txt
